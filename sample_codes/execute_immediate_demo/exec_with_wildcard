@@ -1,0 +1,15 @@
+DECLARE current_month STRING;
+DECLARE _query STRING;
+SET current_month = CAST(EXTRACT(MONTH FROM CURRENT_DATE('Asia/Taipei')) AS STRING);
+-- SET current_month = '7';
+SET _query = """
+CREATE TABLE `williamlab.demo_dataform_dataset.combined_table%s` AS(
+SELECT
+name,
+SUM(money) as %s
+FROM
+`williamlab.wildcard_dataset.user_info_2023-%s-*`
+GROUP BY
+name);
+""";
+EXECUTE IMMEDIATE FORMAT(_query,'_july','July_Total',CONCAT('0',current_month))
