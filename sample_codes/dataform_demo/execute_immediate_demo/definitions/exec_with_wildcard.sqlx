@@ -1,9 +1,13 @@
+config {
+    type: "operations",
+    hasOutput: true
+}
 DECLARE current_month STRING;
 DECLARE _query STRING;
-SET current_month = CAST(EXTRACT(MONTH FROM CURRENT_DATE('Asia/Taipei')) AS STRING);
--- SET current_month = '7';
+-- SET current_month = CAST(EXTRACT(MONTH FROM CURRENT_DATE('Asia/Taipei')) AS STRING);
+SET current_month = '7';
 SET _query = """
-CREATE TABLE `williamlab.demo_dataform_dataset.combined_table%s` AS(
+CREATE OR REPLACE TABLE `williamlab.demo_dataform_dataset.combined_table%s` AS(
 SELECT
 name,
 SUM(money) as %s
