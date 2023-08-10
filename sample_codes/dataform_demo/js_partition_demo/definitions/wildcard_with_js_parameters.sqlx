@@ -8,7 +8,7 @@ config {
   },
   assertions: {
     rowConditions: [
-      "sum_money >= 0"
+      "sum_money >=0"
     ]
   }
 }
