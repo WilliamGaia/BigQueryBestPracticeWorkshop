@@ -4,7 +4,7 @@ steps:
     args:
     - '-c'
     - |
-        pwd
+        ls
 logsBucket: 'gs://william_cloudbuild_logs'
 options:
   logging: GCS_ONLY
