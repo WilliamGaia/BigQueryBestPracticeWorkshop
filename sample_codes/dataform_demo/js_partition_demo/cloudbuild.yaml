@@ -4,8 +4,7 @@ steps:
     args:
     - '-c'
     - |
-        npm i -g --quiet @dataform/cli@2.4.2 \
-        && sh deploy.sh
+        pwd
 logsBucket: 'gs://william_cloudbuild_logs'
 options:
   logging: GCS_ONLY
